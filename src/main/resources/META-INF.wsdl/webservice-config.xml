@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/config">
+	<wsdl location="file:/programming/java-projects/anosym/payapi_tmp/src/META-INF/wsdl/webservice.wsdl" packageName="com.nmt.payapi"/>
+</configuration>
