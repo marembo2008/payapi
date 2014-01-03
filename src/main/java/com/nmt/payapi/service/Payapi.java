@@ -27,6 +27,7 @@ import javax.jws.soap.SOAPBinding;
 public interface Payapi extends Remote {
 
   @WebMethod
+  @SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED)
   public TRegisterPolicy registerPolicy(String loginID, String password, String policyNumber,
           String firstName, String lastName, String IDNumber, String contactNumber, String address,
           String textField1, String textField2, String textField3, boolean realTime, String echo,
@@ -34,65 +35,79 @@ public interface Payapi extends Remote {
           String paymentReceiptNo, boolean realTimePayment, boolean verifyOnly) throws RemoteException;
 
   @WebMethod
+  @SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED)
   public TCancelPolicy cancelPolicy(String loginID, String password, String policyNumber, String echo) throws
           RemoteException;
 
   @WebMethod
+  @SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED)
   public TClientDetailPolicy payPolicy(String loginID, String password, String policyNumber,
           boolean realTime, boolean verifyOnly, double amountDue, double additionalAmount,
           String paymentRefNumber, String storeID, String tillID, String paymentReceiptNo,
           String echo) throws RemoteException;
 
   @WebMethod
+  @SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED)
   public TClientDetailPolicy verifyPolicy(String loginID, String password, String policyNumber) throws
           RemoteException;
 
   @WebMethod
+  @SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED)
   public String registerAccount(String loginID, String password, String accountNumber,
           String firstName, String lastName, String IDNumber, String contactNumber, String address,
           String textField1, String textField2, String textField3, boolean realTime,
           String echo) throws RemoteException;
 
   @WebMethod
+  @SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED)
   public TClientDetailAccount payAccount(String loginID, String password, String accountNo,
           boolean realTime, boolean verifyOnly, double amountDue, double additionalAmount,
           String paymentRefNumber, String storeID, String tillID, String paymentReceiptNo,
           String echo) throws RemoteException;
 
   @WebMethod
+  @SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED)
   public TClientDetailAccount payTrafficFine(String loginID, String password, String noticeNumber,
           boolean verifyOnly, double amountDue, String paymentRefNumber, String storeID,
           String tillID, String paymentReceiptNo, String echo) throws RemoteException;
 
   @WebMethod
+  @SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED)
   public TConfirmP confirmPayment(String loginID, String password, String transactionID,
           double amountDue, double additionalAmount, String tenderType, int confirmationType,
           String echo, String cardNumber, String currencyCode) throws RemoteException;
 
   @WebMethod
+  @SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED)
   public TPayoutDetails payoutAccount(String loginID, String password, String paymentRefNumber,
           String pinCode, String echo) throws RemoteException;
 
   @WebMethod
+  @SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED)
   public TPayRefund payRefund(String loginID, String password, String transactionID, String refundReason,
           String echo) throws RemoteException;
 
   @WebMethod
+  @SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED)
   public TVoidPaymentResponse voidPayment(String loginID, String password, String transactionID,
           String echo) throws RemoteException;
 
   @WebMethod
+  @SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED)
   public TReconUploadResult uploadRecon(String loginID, String password, String transactionID,
           String transactionDate, double transactionAmount, String refNo, String echo) throws RemoteException;
 
   @WebMethod
+  @SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED)
   public TReconResults[] downloadRecon(String loginID, String password, String reconDate,
           String echo) throws RemoteException;
 
   @WebMethod
+  @SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED)
   public TCallMeResult callMe(String loginID, String password, String contactNo, String storeID,
           String tillID) throws RemoteException;
 
   @WebMethod
+  @SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED)
   public TEchoResult echo(String loginID, String password, String echoMessage) throws RemoteException;
 }
