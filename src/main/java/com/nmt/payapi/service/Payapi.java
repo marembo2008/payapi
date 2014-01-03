@@ -2,12 +2,24 @@
 // Contents subject to change without notice.
 // JAX-RPC Standard Implementation (1.1.3, build R1)
 // Generated source version: 1.1.3
-package com.nmt.payapi;
+package com.nmt.payapi.service;
 
+import com.nmt.payapi.TCallMeResult;
+import com.nmt.payapi.TCancelPolicy;
+import com.nmt.payapi.TClientDetailAccount;
+import com.nmt.payapi.TClientDetailPolicy;
+import com.nmt.payapi.TConfirmP;
+import com.nmt.payapi.TEchoResult;
+import com.nmt.payapi.TPayRefund;
+import com.nmt.payapi.TPayoutDetails;
+import com.nmt.payapi.TReconResults;
+import com.nmt.payapi.TReconUploadResult;
+import com.nmt.payapi.TRegisterPolicy;
+import com.nmt.payapi.TVoidPaymentResponse;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface Webservice extends Remote {
+public interface Payapi extends Remote {
 
   public TRegisterPolicy registerPolicy(String loginID, String password, String policyNumber,
           String firstName, String lastName, String IDNumber, String contactNumber, String address,
