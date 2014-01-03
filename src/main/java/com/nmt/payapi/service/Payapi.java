@@ -18,63 +18,81 @@ import com.nmt.payapi.TRegisterPolicy;
 import com.nmt.payapi.TVoidPaymentResponse;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import javax.jws.WebMethod;
 import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
 
 @WebService(name = "payapi")
+@SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED)
 public interface Payapi extends Remote {
 
+  @WebMethod
   public TRegisterPolicy registerPolicy(String loginID, String password, String policyNumber,
           String firstName, String lastName, String IDNumber, String contactNumber, String address,
           String textField1, String textField2, String textField3, boolean realTime, String echo,
           double additionalAmount, String paymentRefNumber, String storeID, String tillID,
           String paymentReceiptNo, boolean realTimePayment, boolean verifyOnly) throws RemoteException;
 
+  @WebMethod
   public TCancelPolicy cancelPolicy(String loginID, String password, String policyNumber, String echo) throws
           RemoteException;
 
+  @WebMethod
   public TClientDetailPolicy payPolicy(String loginID, String password, String policyNumber,
           boolean realTime, boolean verifyOnly, double amountDue, double additionalAmount,
           String paymentRefNumber, String storeID, String tillID, String paymentReceiptNo,
           String echo) throws RemoteException;
 
+  @WebMethod
   public TClientDetailPolicy verifyPolicy(String loginID, String password, String policyNumber) throws
           RemoteException;
 
+  @WebMethod
   public String registerAccount(String loginID, String password, String accountNumber,
           String firstName, String lastName, String IDNumber, String contactNumber, String address,
           String textField1, String textField2, String textField3, boolean realTime,
           String echo) throws RemoteException;
 
+  @WebMethod
   public TClientDetailAccount payAccount(String loginID, String password, String accountNo,
           boolean realTime, boolean verifyOnly, double amountDue, double additionalAmount,
           String paymentRefNumber, String storeID, String tillID, String paymentReceiptNo,
           String echo) throws RemoteException;
 
+  @WebMethod
   public TClientDetailAccount payTrafficFine(String loginID, String password, String noticeNumber,
           boolean verifyOnly, double amountDue, String paymentRefNumber, String storeID,
           String tillID, String paymentReceiptNo, String echo) throws RemoteException;
 
+  @WebMethod
   public TConfirmP confirmPayment(String loginID, String password, String transactionID,
           double amountDue, double additionalAmount, String tenderType, int confirmationType,
           String echo, String cardNumber, String currencyCode) throws RemoteException;
 
+  @WebMethod
   public TPayoutDetails payoutAccount(String loginID, String password, String paymentRefNumber,
           String pinCode, String echo) throws RemoteException;
 
+  @WebMethod
   public TPayRefund payRefund(String loginID, String password, String transactionID, String refundReason,
           String echo) throws RemoteException;
 
+  @WebMethod
   public TVoidPaymentResponse voidPayment(String loginID, String password, String transactionID,
           String echo) throws RemoteException;
 
+  @WebMethod
   public TReconUploadResult uploadRecon(String loginID, String password, String transactionID,
           String transactionDate, double transactionAmount, String refNo, String echo) throws RemoteException;
 
+  @WebMethod
   public TReconResults[] downloadRecon(String loginID, String password, String reconDate,
           String echo) throws RemoteException;
 
+  @WebMethod
   public TCallMeResult callMe(String loginID, String password, String contactNo, String storeID,
           String tillID) throws RemoteException;
 
+  @WebMethod
   public TEchoResult echo(String loginID, String password, String echoMessage) throws RemoteException;
 }
