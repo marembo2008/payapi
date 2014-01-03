@@ -18,7 +18,10 @@ import com.nmt.payapi.TRegisterPolicy;
 import com.nmt.payapi.TVoidPaymentResponse;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import javax.jws.WebService;
 
+@WebService(wsdlLocation = "http://196.34.95.221/scripts/KwikpayWebserviceQA.exe/wsdl/webservice",
+        name = "payapi")
 public interface Payapi extends Remote {
 
   public TRegisterPolicy registerPolicy(String loginID, String password, String policyNumber,
